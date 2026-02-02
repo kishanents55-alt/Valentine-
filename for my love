@@ -1,0 +1,135 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For Dharshu maa ❤️</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+      overflow: hidden;
+    }
+    .card {
+      background: rgba(255, 255, 255, 0.18);
+      padding: 28px;
+      border-radius: 25px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+      max-width: 420px;
+      animation: fadeIn 1.5s ease;
+    }
+    h1 { font-size: 2.3em; }
+    p { font-size: 1.05em; line-height: 1.6; }
+    img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid white;
+      margin: 8px;
+    }
+    button {
+      margin-top: 15px;
+      padding: 12px 22px;
+      font-size: 1em;
+      border: none;
+      border-radius: 30px;
+      background: #fff;
+      color: #ff4d6d;
+      cursor: pointer;
+    }
+    #secret, #answer { display: none; margin-top: 15px; font-size: 1.15em; }
+    .heart {
+      position: absolute;
+      color: #ff4d6d;
+      animation: floatUp 4s linear infinite;
+    }
+    @keyframes floatUp {
+      from { transform: translateY(0); opacity: 1; }
+      to { transform: translateY(-600px); opacity: 0; }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    #countdown { margin-top: 10px; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <audio autoplay loop>
+    <source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mpeg">
+  </audio>  <div class="card">
+    <h1>Dharshu maa ❤️</h1><!-- Replace these image links with your photos -->
+<div>
+  <img src="your-photo.jpg" alt="You">
+  <img src="her-photo.jpg" alt="Her">
+</div>
+
+<p>
+  One year with you and I still get butterflies like it’s the first day.
+  You make my life brighter, calmer, and happier just by being you.
+  This little website holds a big piece of my heart.
+</p>
+
+<div id="countdown"></div>
+
+<button onclick="showLove()">Tap for a surprise 💝</button>
+
+<div id="secret">
+  You are my favorite person, my comfort, and my happy place.
+  <br><br>
+  Will you be my Valentine, Dharshu maa? 💕
+  <br><br>
+  <button onclick="yesClicked()">Yes 💖</button>
+  <button onclick="noClicked()">No 🙈</button>
+</div>
+
+<div id="answer"></div>
+
+  </div>  <script>
+    const valentineDate = new Date(new Date().getFullYear(), 1, 14);
+    const countdownEl = document.getElementById('countdown');
+
+    function updateCountdown() {
+      const now = new Date();
+      const diff = valentineDate - now;
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      countdownEl.innerHTML = days >= 0 ? `⏳ ${days} days until Valentine’s Day` : '💘 Happy Valentine’s Day!';
+    }
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+
+    function showLove() {
+      document.getElementById('secret').style.display = 'block';
+      createHearts();
+    }
+    function yesClicked() {
+      document.getElementById('answer').style.display = 'block';
+      document.getElementById('answer').innerHTML = 'Yayyy 😍 I choose you. Always and forever 💘';
+      createHearts();
+    }
+    function noClicked() {
+      document.getElementById('answer').style.display = 'block';
+      document.getElementById('answer').innerHTML = 'Nice try 😏 You’re still my Valentine forever 💕';
+      createHearts();
+    }
+    function createHearts() {
+      for (let i = 0; i < 12; i++) {
+        const heart = document.createElement('div');
+        heart.className = 'heart';
+        heart.innerHTML = '❤️';
+        heart.style.left = Math.random() * 100 + 'vw';
+        heart.style.bottom = '0px';
+        heart.style.fontSize = (Math.random() * 20 + 15) + 'px';
+        document.body.appendChild(heart);
+        setTimeout(() => heart.remove(), 4000);
+      }
+    }
+  </script></body>
+</html>
